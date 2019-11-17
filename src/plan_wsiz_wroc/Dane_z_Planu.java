@@ -165,10 +165,10 @@ public class Dane_z_Planu {
                         text[row.getRowNum()][cell.getColumnIndex()] = (cell.getNumericCellValue() + "");
                         break;
                     case STRING:
-                        if (cell.getStringCellValue().contains(data)) {
+                        if (cell.getStringCellValue().contains(data) && !cell.getStringCellValue().contains("do")) {
                             index_start = row.getRowNum();
                         }
-                        if (cell.getStringCellValue().contains("Gr") && cell.getStringCellValue().length() < 3 && index_start != 0 && index_stop == 0 && row.getRowNum() > (index_start + 2)) {
+                        if (cell.getStringCellValue().replace(" ", "").equals("Gr") && index_start != 0 && index_stop == 0 && row.getRowNum() > (index_start + 2)) {
                             index_stop = row.getRowNum();
                         }
                         text[row.getRowNum()][cell.getColumnIndex()] = cell.getStringCellValue();
